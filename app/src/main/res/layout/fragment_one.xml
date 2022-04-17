@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/tab_layout">
+
     <TextView
         android:id="@+id/tab_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="#282e81"
         android:text="Tab"
+        android:textColor="#282e81"
         android:textSize="36sp" />
+<!--    <Button-->
+<!--        android:id="@+id/click_me"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/tab_title"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="change"/>-->
 
 </RelativeLayout>

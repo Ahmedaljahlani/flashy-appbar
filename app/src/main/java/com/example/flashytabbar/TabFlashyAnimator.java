@@ -1,4 +1,5 @@
 package com.example.flashytabbar;
+
 import android.graphics.Color;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -68,12 +69,12 @@ public class TabFlashyAnimator extends ViewPager.SimpleOnPageChangeListener {
         TextView title = view.findViewById(R.id.tab_title);
         title.setText(mFragmentTitleList.get(position));
         title.setTextColor(mFragmentColorList.get(position) == null ? Color.argb(255, 40, 45, 130) : getColor(mFragmentColorList.get(position)));
-        if(mFragmentSizeList.get(position) != null) {
+        if (mFragmentSizeList.get(position) != null) {
             title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mFragmentSizeList.get(position));
         }
         set.clone(layout);
         set.connect(textForeground.getId(), ConstraintSet.TOP, isSelected ? title.getId() : tabImageView.getId(), ConstraintSet.BOTTOM);
-        if(isSelected) {
+        if (isSelected) {
             set.clear(tabImageView.getId(), ConstraintSet.BOTTOM);
             set.connect(title.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP);
             set.connect(title.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
@@ -82,7 +83,7 @@ public class TabFlashyAnimator extends ViewPager.SimpleOnPageChangeListener {
             set.connect(tabImageView.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
             set.clear(title.getId(), ConstraintSet.BOTTOM);
             set.connect(title.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
-            if(position == previousPosition || previousPosition == -1) {
+            if (position == previousPosition || previousPosition == -1) {
                 dot.startAnimation(AnimationUtils.loadAnimation(tabLayout.getContext(), R.anim.hide));
             }
         }

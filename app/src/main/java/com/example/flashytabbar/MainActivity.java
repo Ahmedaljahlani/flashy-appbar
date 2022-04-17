@@ -1,12 +1,21 @@
 package com.example.flashytabbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -15,14 +24,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Fragment> mFragmentList=new ArrayList<>();
+    private final List<Fragment> mFragmentList = new ArrayList<>();
     private TabFlashyAnimator tabFlashAnimator;
-    private String[] titles=new String[]{"Events","Highlights","Search","Settings"};
+    private final String[] titles = new String[]{"Events", "Highlights", "Search", "Settings"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         mFragmentList.add(new TabFragment(titles[0]));
         mFragmentList.add(new TabFragment(titles[1]));
         mFragmentList.add(new TabFragment(titles[2]));
@@ -47,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         tabFlashAnimator.addTabItem(titles[0], R.drawable.ic_events);
         tabFlashAnimator.addTabItem(titles[1], R.drawable.ic_highlights);
         tabFlashAnimator.addTabItem(titles[2], R.drawable.ic_search);
-        tabFlashAnimator.addTabItem(titles[3], R.drawable.ic_settings, R.color.colorAccent, getResources().getDimension(R.dimen.big_text));
+        tabFlashAnimator.addTabItem(titles[3], R.drawable.ic_settings, R.color.colorAccent,getResources().getDimension(R.dimen.big_text));
         tabFlashAnimator.highLightTab(0);
         viewPager.addOnPageChangeListener(tabFlashAnimator);
         Handler handler = new Handler();
@@ -69,6 +81,17 @@ public class MainActivity extends AppCompatActivity {
                 tabFlashAnimator.setBadge(200, 2);
             }
         }, 3000);
+
+
+
+//        Button select = findViewById(R.id.click_me);
+//        select.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                tabFlashAnimator.onPageSelected(1);
+//                viewPager.setCurrentItem(1);
+//            }
+//        });
     }
 
     @Override

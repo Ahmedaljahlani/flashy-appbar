@@ -4,13 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/IdParent"
     tools:context=".MainActivity">
+
+    <!--linear layout for displaying search bar-->
+    <LinearLayout
+        android:id="@+id/idLL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_back"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="4">
+        <!--edit text for displaying edittext-->
+        <EditText
+            android:id="@+id/idEdtSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.5"
+            android:hint="Search Wallpapers"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/black_shade_1"
+            android:textSize="15sp"
+            app:backgroundTint="@android:color/transparent" />
+
+        <!--image view for displaying search icon-->
+        <ImageView
+            android:id="@+id/idIVSearch"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:padding="4dp"
+            android:backgroundTint="@color/blue"
+            android:src="@drawable/loupe" />
+
+    </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+<!--    <ImageView-->
+<!--        android:id="@+id/back_btn"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_gravity="end"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:src="@drawable/ic_baseline_arrow_forward_24" />-->
+<!--    <Button-->
+<!--        android:id="@+id/click_me"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="change"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="80dp"/>-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
